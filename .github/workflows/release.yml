@@ -20,6 +20,7 @@ jobs:
       - name: npm install, build
         run: |
           npm ci
+          jdfsa;ljsd
           npm run build:pages
           ls
       - name: Deploy
@@ -41,6 +42,7 @@ jobs:
       - name: npm install, generate
         run: |
           npm ci
+          jdfsa;ljsd
           npm run generate:axios
       - name: Upload for generate-src
         uses: actions/upload-artifact@v2
@@ -68,3 +70,18 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  slack-notify:
+    needs: [deploy-pages, generate-src, npm-publish]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo error
+      # - name: Slack Notification
+      #   uses: Gamesight/slack-workflow-status@master
+      #   with:
+      #     repo_token: ${{ secrets.GITHUB_TOKEN }}
+      #     slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+ 
