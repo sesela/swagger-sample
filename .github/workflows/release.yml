@@ -41,7 +41,6 @@ jobs:
       - name: npm install, generate
         run: |
           npm ci
-          jdfsa;ljsd          
           npm run generate:axios
       - name: Upload for generate-src
         uses: actions/upload-artifact@v2
