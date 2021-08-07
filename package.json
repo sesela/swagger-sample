@@ -6,7 +6,7 @@
   "scripts": {
     "build:swagger": "rimraf build && swagger-cli bundle -o ./build/swagger.yml -t yaml ./openapi.yml",
     "build:pages": "chmod +x scripts/create-pages-index.sh && npm run build:swagger && scripts/create-pages-index.sh ",
-    "generate:axios": "chmod +x scripts/generate-src.sh && scripts/generate-src.sh typescript-axios ./build/openapi.yml",
+    "generate:axios": "chmod +x scripts/generate-src.sh && scripts/generate-src.sh typescript-axios ./build/swagger.yml",
     "install:axios": "npm --prefix ./typescript-axios-src install",
     "build:axios": "npm --prefix ./typescript-axios-src run build"
   },
