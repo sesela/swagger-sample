@@ -1,3 +1,3 @@
 # swagger-sample
 
-https://shinya01.github.io/swagger-sample/
+https://sesela.github.io/swagger-sample/

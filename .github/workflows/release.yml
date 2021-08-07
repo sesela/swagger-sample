@@ -22,6 +22,11 @@ jobs:
           npm ci
           npm run build:pages
           ls
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
 
   generate-src:
     runs-on: ubuntu-20.04
