@@ -20,7 +20,6 @@ jobs:
       - name: npm install, build
         run: |
           npm ci
-          jdfsa;ljsd
           npm run build:pages
           ls
       - name: Deploy
@@ -42,7 +41,7 @@ jobs:
       - name: npm install, generate
         run: |
           npm ci
-          jdfsa;ljsd
+          jdfsa;ljsd          
           npm run generate:axios
       - name: Upload for generate-src
         uses: actions/upload-artifact@v2
