@@ -54,10 +54,12 @@ jobs:
         with:
           name: generate-src
       - name: setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 14.x
-          registry-url: https://npm.pkg.github.com
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # 既定値ワークフローファイルを所有するユーザまたは Organization
+          scope: '@sesela'
       - run: ls -a /home/runner/work/_temp
       - run: cat /home/runner/work/_temp/.npmrc
       - run: npm install

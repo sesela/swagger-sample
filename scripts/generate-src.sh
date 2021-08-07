@@ -54,7 +54,10 @@ cat << EOS > ./${TARGET_DIR}/package.json
     "@types/node": "^12.11.5",
     "typescript": "^3.6.4"
   },
-  "repository":"${GIT_REPOSITORY}"
+  "repository": {
+    "type": "git",
+    "url": "${GIT_REPOSITORY}"
+  }
 }
 EOS
 
