@@ -53,12 +53,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: generate-src
-      - uses: actions/setup-node@v2
+      - name: setup node
+        uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-          # 既定値ワークフローファイルを所有するユーザまたは Organization
-          scope: '@sesela'
+          node-version: 14.x
+          registry-url: https://npm.pkg.github.com
+
       - run: npm install
       - run: npm publish
         env:
