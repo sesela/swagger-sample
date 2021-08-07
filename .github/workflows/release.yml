@@ -7,21 +7,21 @@ on:
   pull_request:
 
 jobs:
-  # deploy-pages:
-  #   runs-on: ubuntu-20.04
-  #   concurrency:
-  #     group: ${{ github.workflow }}-${{ github.ref }}
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '14'
-  #     - name: npm install, build
-  #       run: |
-  #         npm ci
-  #         npm run build:pages
-  #         ls
+  deploy-pages:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: npm install, build
+        run: |
+          npm ci
+          npm run build:pages
+          ls
 
   generate-src:
     runs-on: ubuntu-20.04
@@ -58,11 +58,7 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-          # 既定値ワークフローファイルを所有するユーザまたは Organization
-          scope: '@sesela'
-      - run: ls -a /home/runner/work/_temp
-      - run: cat package.json
-      - run: cat /home/runner/work/_temp/.npmrc
+          # scope: '@sesela'
       - run: npm install
       - run: npm publish
         env:
