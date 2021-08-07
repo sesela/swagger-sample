@@ -58,7 +58,7 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-          # scope: '@sesela'
+          # scope: '@xxxxx'
       - run: npm install
       - run: npm publish
         env:

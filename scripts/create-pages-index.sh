@@ -23,7 +23,7 @@ cat << EOS > ./build/index.html
   </head>
   <body>
     <!-- 👇yamlファイルへのパス -->
-    <redoc spec-url='./openapi.yml'></redoc> 
+    <redoc spec-url='./swagger.yml'></redoc> 
     <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
   </body>
 </html>

@@ -1,11 +1,11 @@
 {
   "name": "swagger",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:swagger": "rimraf build && swagger-cli bundle -o ./build/swagger.yml -t yaml ./openapi.yml",
     "build:pages": "chmod +x scripts/create-pages-index.sh && npm run build:swagger && scripts/create-pages-index.sh ",
-    "build:swagger": "rimraf build && swagger-cli bundle -o ./build/openapi.yml -t yaml ./openapi.yml",
     "generate:axios": "chmod +x scripts/generate-src.sh && scripts/generate-src.sh typescript-axios ./build/openapi.yml",
     "install:axios": "npm --prefix ./typescript-axios-src install",
     "build:axios": "npm --prefix ./typescript-axios-src run build"
