@@ -58,10 +58,8 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
           # 既定値ワークフローファイルを所有するユーザまたは Organization
-          scope: '@shinya01'
+          scope: '@sesela'
       - run: npm install
-      - run: npm run build
-      - run: echo ${{ secrets.GITHUB_TOKEN }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
