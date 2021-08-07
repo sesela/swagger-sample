@@ -1,0 +1,18 @@
+{
+  "name": "swagger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:pages": "chmod +x scripts/create-index.sh && npm run build:swagger && scripts/create-index.sh ",
+    "build:swagger": "rimraf build && swagger-cli bundle -o ./build/openapi.yml -t yaml ./openapi.yml",
+    "generate:axios": "NPM_NAME=pets && TARGET_DIR=typescript-axios-src && rimraf ${TARGET_DIR} && npm run build:swagger && openapi-generator-cli generate -g typescript-axios -i build/openapi.yml -o ${TARGET_DIR}  --additional-properties=npmName=${NPM_NAME}"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "@openapitools/openapi-generator-cli": "^2.3.9",
+    "rimraf": "^3.0.2"
+  }
+}
