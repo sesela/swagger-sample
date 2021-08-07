@@ -28,7 +28,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
 
-  generate-src:
+  generate-axios-src:
     runs-on: ubuntu-20.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -48,7 +48,7 @@ jobs:
           name: generate-src
           path: ./typescript-axios-src
 
-  npm-publish:
+  npm-axios-publish:
     runs-on: ubuntu-20.04
     needs: generate-src
     concurrency:
@@ -70,7 +70,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   slack-notify:
-    needs: [deploy-pages, generate-src, npm-publish]
+    needs: [deploy-pages, generate-axios-src, npm-axios-publish]
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     if: always()
