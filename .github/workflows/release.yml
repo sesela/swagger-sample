@@ -42,7 +42,7 @@ jobs:
         run: |
           npm ci
           npm run generate:axios
-      - name: Upload for generate-src
+      - name: Upload for generate-axios-src
         uses: actions/upload-artifact@v2
         with:
           name: generate-src
@@ -50,11 +50,11 @@ jobs:
 
   npm-axios-publish:
     runs-on: ubuntu-20.04
-    needs: generate-src
+    needs: generate-axios-src
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Download for generate-src
+      - name: Download for generate-axios-src
         uses: actions/download-artifact@v2
         with:
           name: generate-src
