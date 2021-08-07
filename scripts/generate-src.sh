@@ -7,7 +7,7 @@ fi
 GENERATOR_NAME=$1
 OPEN_API_FILE=$2
 
-NPM_PKG_VERSION=${npm_package_version:-1.0.0}
+NPM_PKG_VERSION=`grep "version" openapi.yml | awk -F":" '{gsub(/[ "]/, "", $0); print $2}'`
 TARGET_DIR=${GENERATOR_NAME}-src
 GITHUB_REPOSITORY=${GITHUB_REPOSITORY-sesela/swagger-sample}
 
